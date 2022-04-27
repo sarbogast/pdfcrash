@@ -1,0 +1,4 @@
+enum ShareDestination {
+  all,
+  none,
+}
