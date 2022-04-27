@@ -6,7 +6,9 @@ import 'package:pdfcrash/models/reference.dart';
 import 'package:pdfcrash/utils/reference_pdf_generator.dart';
 import 'package:printing/printing.dart';
 
-const referenceJson =
+const normalReferenceJson =
+    '{"id":"2603b4de-b51f-4c3e-89a8-74d8af9fa350","projectName":{"fr":"test PDF small"},"customerName":"dfsdf","companyName":"Imperbel","surface":4545,"buildingType":"Medical","newBuilding":true,"year":2022,"month":4,"address":"Rue Georges De Lombaerde 55, 1140 Evere, Belgique","countryCode":"BE","city":"Evere","country":"Belgique","projectDate":"2022-04","satellite":{"url":"https://storage.googleapis.com/approof-references-beta.appspot.com/v5/references/2603b4de-b51f-4c3e-89a8-74d8af9fa350/satellite/889d8483-d5e0-4590-b0c3-1009c2fa7ce3.jpg?GoogleAccessId=firebase-adminsdk-8gpu7%40approof-references-beta.iam.gserviceaccount.com&Expires=16756675200&Signature=qTDP7PDjZqUPR2HTJHggaH3alaEcccfIuTF7qj4pExsS84C01QFhl3bqf2QsvkEl6rg7UP4JCtHjAFYN1Cg%2FJiT6lWJsKu2vV7o0HCCGUnjXgtA%2Fwz3muZkMKu6iVJis3U%2BAaZDA%2F0n0Mm0Xwb5YqJzZ%2BYhGmoWNha9QYB7WVAHjq3vtkEJ0L%2BJS%2F8O4o8KQbeXB8Pf2r9n%2B51ZluzUjAKkdBldjwSZkf83jH2D5c07FH7uinTrfZbkqsBn%2BXTfFfcYmPY0F8ZCt6CzDHlr23EYFRWeFFJGbDf%2BjIGMju0XJR6f6ZhbuJiTpFDX2rZx3ZhxK37vK5JNvcrfxUodLxg%3D%3D","storagePath":"v5/references/2603b4de-b51f-4c3e-89a8-74d8af9fa350/satellite/889d8483-d5e0-4590-b0c3-1009c2fa7ce3.jpg"},"pictures":[{"url":"https://firebasestorage.googleapis.com/v0/b/approof-references-beta.appspot.com/o/v5%2Freferences%2F2603b4de-b51f-4c3e-89a8-74d8af9fa350%2Fpictures%2F092b31c3-03bb-405d-8492-7deb62eda3b6.jpg?alt=media&token=21317fe7-1c2a-46ef-ab27-c03312be09ce","storagePath":"v5/references/2603b4de-b51f-4c3e-89a8-74d8af9fa350/pictures/092b31c3-03bb-405d-8492-7deb62eda3b6.jpg","webUrl":"https://storage.googleapis.com/approof-references-beta.appspot.com/v5/references/2603b4de-b51f-4c3e-89a8-74d8af9fa350/pictures/092b31c3-03bb-405d-8492-7deb62eda3b6_1024x750.jpg?GoogleAccessId=firebase-adminsdk-8gpu7%40approof-references-beta.iam.gserviceaccount.com&Expires=16756675200&Signature=X3rU%2BwMxbL9YQnjfC3ieMBp%2B1qpzQzMZBV%2BgUsEq1ZEXeq6ZNwNhmoHiuAX5yb7V8ahQdoBynVYrBR%2Bz7nSJVNj70zcGB0wG3%2BQ2YSOM%2BneRcpLWCzGZK1NvkmTatIigguUo8DaMQFSEWbPF%2F%2BylDvYwtPoHU0mIsqfJCOMt9jDNxPS96mG9eod4Ulh6DNgOdhE5FtpLHwpOic7s0RNMgOPubcTEJ5dhBvAs4bzLtFQLIEzccQOZpypuQZ%2BRi7%2FzA8gVXh%2BwaUyavc%2B9owEQYPOz48m8KxCImGkReqhTWPDIa3zwqG4U%2FNdI5oxRFIzXtVDcgYWcd3emEzRzj%2BPA3Q%3D%3D","webStoragePath":"v5/references/2603b4de-b51f-4c3e-89a8-74d8af9fa350/pictures/092b31c3-03bb-405d-8492-7deb62eda3b6_1024x750.jpg","alt":{},"legend":{},"excluded":false},{"url":"https://firebasestorage.googleapis.com/v0/b/approof-references-beta.appspot.com/o/v5%2Freferences%2F2603b4de-b51f-4c3e-89a8-74d8af9fa350%2Fpictures%2Ffa2c9314-a8c9-4106-b9dd-44a817611111.jpg?alt=media&token=4d592649-0f53-43c7-9e96-291488dc93ca","storagePath":"v5/references/2603b4de-b51f-4c3e-89a8-74d8af9fa350/pictures/fa2c9314-a8c9-4106-b9dd-44a817611111.jpg","webUrl":"https://storage.googleapis.com/approof-references-beta.appspot.com/v5/references/2603b4de-b51f-4c3e-89a8-74d8af9fa350/pictures/fa2c9314-a8c9-4106-b9dd-44a817611111_1024x750.jpg?GoogleAccessId=firebase-adminsdk-8gpu7%40approof-references-beta.iam.gserviceaccount.com&Expires=16756675200&Signature=ahrMM2Glx2lhcBVZ7YvgEZo95g%2BtVdgGl5xpzVyeRr2MpUtBmVGqrAYl7nskb0LuSdX0psFj6zpYZjyoPsIo0h8zXnb%2F6lWC2l7cb%2FnTcQ4cW8lXAB7XewskxZohBea%2Bv%2F4%2BL1V6kn5tyV9IBODaPnPWtZEut0v8TdEdIbZgXSCIhZuvqd3HV9IPAtE8aBx4KQ6U6Y6%2Fqz5U9x0ysB85AIIePqxsqrevdM6Y1%2FuiGkPNgoHqbQRzex%2BKn2yWZNqx%2Fn70XiDPUi6avswaGSlCjboywcNgGBl2tjDvjSpIIVzGvCFX8ILQV1dUtoa2lEqMt%2FOj7xqM6pxjwkcxHU%2BDtQ%3D%3D","webStoragePath":"v5/references/2603b4de-b51f-4c3e-89a8-74d8af9fa350/pictures/fa2c9314-a8c9-4106-b9dd-44a817611111_1024x750.jpg","alt":{},"legend":{},"excluded":false},{"url":"https://firebasestorage.googleapis.com/v0/b/approof-references-beta.appspot.com/o/v5%2Freferences%2F2603b4de-b51f-4c3e-89a8-74d8af9fa350%2Fpictures%2Fd6816cc0-7b80-4047-af74-023940c3109a.jpg?alt=media&token=9ef8d84d-2aff-4537-8528-7c44eec8c0d5","storagePath":"v5/references/2603b4de-b51f-4c3e-89a8-74d8af9fa350/pictures/d6816cc0-7b80-4047-af74-023940c3109a.jpg","webUrl":"https://storage.googleapis.com/approof-references-beta.appspot.com/v5/references/2603b4de-b51f-4c3e-89a8-74d8af9fa350/pictures/d6816cc0-7b80-4047-af74-023940c3109a_1024x750.jpg?GoogleAccessId=firebase-adminsdk-8gpu7%40approof-references-beta.iam.gserviceaccount.com&Expires=16756675200&Signature=hDXGDkY%2BRBNH7RJDOXP5icb%2F6y5a8g7kTUuYXCPHGw9N66MtJGSWI4M9PaCAKiOLym02aJcjvPPMeIUbifU7k2PVIutgZrMZpiHhfaDsjz%2BCKQKZAyFGpD4C5eQJ29mPVHoWWjVP2QczBWtIqpzdMwRJcOT0pkmsOq9lDAjFT0KX9sToJdAasWzyDwHVQtaIW%2BMMQr1tbBDj76UKnG2QJf9HqaH1fDnHrPGD1S%2BMiLo5%2Fx0Uw5JY43%2F4htRC5oxmza6NGcxJgJA5BFoLqavQV8BytNBBGPHcTYz3KSpR0A5UAISqkRxocYXoeDKVO%2F14BYroXOuvWpxqZwwtnNV0jg%3D%3D","webStoragePath":"v5/references/2603b4de-b51f-4c3e-89a8-74d8af9fa350/pictures/d6816cc0-7b80-4047-af74-023940c3109a_1024x750.jpg","alt":{},"legend":{},"excluded":false},{"url":"https://firebasestorage.googleapis.com/v0/b/approof-references-beta.appspot.com/o/v5%2Freferences%2F2603b4de-b51f-4c3e-89a8-74d8af9fa350%2Fpictures%2Fae4f1008-f944-4507-a84a-ae58ea873375.jpg?alt=media&token=9bbc2597-7e5f-4fc0-a9e3-1a56be3011ef","storagePath":"v5/references/2603b4de-b51f-4c3e-89a8-74d8af9fa350/pictures/ae4f1008-f944-4507-a84a-ae58ea873375.jpg","webUrl":"https://storage.googleapis.com/approof-references-beta.appspot.com/v5/references/2603b4de-b51f-4c3e-89a8-74d8af9fa350/pictures/ae4f1008-f944-4507-a84a-ae58ea873375_1024x750.jpg?GoogleAccessId=firebase-adminsdk-8gpu7%40approof-references-beta.iam.gserviceaccount.com&Expires=16756675200&Signature=shsdQQ4vqgWis%2FmQkIO%2FlHg2PtKEchpvBItvOB9ep%2FRzBIyPVPzlrw981BYA40vwURLjXMOAlR%2BIJ1NNjNnus%2BTKjaB0%2BIio8MEWyE4xNBrq1A88o8wK7SBxoQh94nAg%2B0KP41fk7UpDVy3ARpRvZLYU4sXPMIbAA1vCJQHKVsOri45MRWdsUdGh%2F7Z6ImNd8mRUwsxH2pGc9%2Bm%2Fg7jkXAF6KyBJHtNvtVzko9uxMKvVMURahPQZtGVBkEe0q85yEHEXVnjAvLLnhcF0djSaaC4%2BvR7ccUSUv%2FFq0f28SKQTHdU5hpWSrgG0%2FGAMdJ0bC40Oo1NbStAlhrTxp1jVeA%3D%3D","webStoragePath":"v5/references/2603b4de-b51f-4c3e-89a8-74d8af9fa350/pictures/ae4f1008-f944-4507-a84a-ae58ea873375_1024x750.jpg","alt":{},"legend":{},"excluded":false},{"url":"https://firebasestorage.googleapis.com/v0/b/approof-references-beta.appspot.com/o/v5%2Freferences%2F2603b4de-b51f-4c3e-89a8-74d8af9fa350%2Fpictures%2Fb6bf12ae-144b-40ad-9811-0938a27f0d42.jpg?alt=media&token=f3f6f2ff-d842-4782-ad12-dd4e750755f4","storagePath":"v5/references/2603b4de-b51f-4c3e-89a8-74d8af9fa350/pictures/b6bf12ae-144b-40ad-9811-0938a27f0d42.jpg","webUrl":"https://storage.googleapis.com/approof-references-beta.appspot.com/v5/references/2603b4de-b51f-4c3e-89a8-74d8af9fa350/pictures/b6bf12ae-144b-40ad-9811-0938a27f0d42_1024x750.jpg?GoogleAccessId=firebase-adminsdk-8gpu7%40approof-references-beta.iam.gserviceaccount.com&Expires=16756675200&Signature=dSxbb7gT%2FK88gJiBBqJZGPb%2BdjvheYcfYtvOWq9ASyIeluOZAPOTfOV5YSvhc%2BoBL76i92igRc8wHcBDAKfuVi3M%2FLaDOWqn%2FVrOzvZpmQIMpz2BUH%2BHwg7P6L6RTumqaAAECjNLROa1lf9EYJzz7VLDTQlqSzXJWKxV9CYieYrSVBixKXCec%2FrzN00xeS8H3PMmu39Dg6cqKDw7whm5fUtyTkoGMB6iQRWvPve3rftkrPUIXvX%2FyOqqXpW3e7RCIPV3HTkLus%2B0%2BBp7gyKmnAzJEawbyI6pkAjlXANrrZJqzhTmm9X1lFlEjzOq%2BGz9%2BBnuuLDtKkjUTMoLJ1XHNQ%3D%3D","webStoragePath":"v5/references/2603b4de-b51f-4c3e-89a8-74d8af9fa350/pictures/b6bf12ae-144b-40ad-9811-0938a27f0d42_1024x750.jpg","alt":{},"legend":{},"excluded":false},{"url":"https://firebasestorage.googleapis.com/v0/b/approof-references-beta.appspot.com/o/v5%2Freferences%2F2603b4de-b51f-4c3e-89a8-74d8af9fa350%2Fpictures%2F64662c7c-52b4-4cac-a968-925b8b144b66.jpg?alt=media&token=b90e40f5-e608-4ddf-af5f-fddf1cc3400a","storagePath":"v5/references/2603b4de-b51f-4c3e-89a8-74d8af9fa350/pictures/64662c7c-52b4-4cac-a968-925b8b144b66.jpg","webUrl":"https://storage.googleapis.com/approof-references-beta.appspot.com/v5/references/2603b4de-b51f-4c3e-89a8-74d8af9fa350/pictures/64662c7c-52b4-4cac-a968-925b8b144b66_1024x750.jpg?GoogleAccessId=firebase-adminsdk-8gpu7%40approof-references-beta.iam.gserviceaccount.com&Expires=16756675200&Signature=sZEqgRsIYHPTPZrOYTgxPpsfNvLp63DedOh2TGAX8rA%2FS3xOxZt1Gvrjn%2FxIlo4fZQdTewwkpiZzHQ1xUY4ar0j2gncm05Pdo1CIxzjyVuJ9%2FMdAoSXWijR3Ow5z0pkWxHKDmir9drb8EJFPd4kxPKQlDHLLZBvXTlH6v7xIz2AsDKbAcsA2AtWlDs0RSqwa19mjqReyBW12U8U%2FjduzDDU8QtvyoefSk01TQyu6HDXuUidEaMOY8K7Bjzow194TLAUvAP3BmhemZo6KZc3dE0%2F9efIebisEM%2FFlNKdPcliM5%2BHcgxad4EuNm5tWGz1Eig2r8QDQbQR9sRZun0iq8Q%3D%3D","webStoragePath":"v5/references/2603b4de-b51f-4c3e-89a8-74d8af9fa350/pictures/64662c7c-52b4-4cac-a968-925b8b144b66_1024x750.jpg","alt":{},"legend":{},"excluded":false},{"url":"https://firebasestorage.googleapis.com/v0/b/approof-references-beta.appspot.com/o/v5%2Freferences%2F2603b4de-b51f-4c3e-89a8-74d8af9fa350%2Fpictures%2Fd3c3f84e-9f14-4c92-8abb-682e04549cfa.jpg?alt=media&token=e4e48fca-8dc8-4099-b44e-cd2f64241941","storagePath":"v5/references/2603b4de-b51f-4c3e-89a8-74d8af9fa350/pictures/d3c3f84e-9f14-4c92-8abb-682e04549cfa.jpg","webUrl":"https://storage.googleapis.com/approof-references-beta.appspot.com/v5/references/2603b4de-b51f-4c3e-89a8-74d8af9fa350/pictures/d3c3f84e-9f14-4c92-8abb-682e04549cfa_1024x750.jpg?GoogleAccessId=firebase-adminsdk-8gpu7%40approof-references-beta.iam.gserviceaccount.com&Expires=16756675200&Signature=pkgxramB%2BDSSEawW%2F5X0%2FL2ylxfczy5ZJtJqt4Wvlq93MdVw5x%2B%2BO7uyQWEejnYmj0vL0XWuCcwgHRiggb%2FTUFekWzXwE7uirqZsz2xQgxOchGCUkhmVYMbTLFAQNO67SjTOjn963Rj9BcIju%2B50dAVt60Yj0VKVGvFncngL9fUBBvI3%2BXh9dT085wFVSBHBgJr8xSXX8sCGFjGFxRCRFaUtEiQawqCXowQIK%2FZV9pRGMkYEA2ObDe8QVyNMpK8Ftsa4UAqrQOHomvwoHlshnyTL6HusnVhDiLYSzN8Glah5939QNyz0rQm0zV5Dy7hzP5BD5PkYOf8GHtpkrq1pMw%3D%3D","webStoragePath":"v5/references/2603b4de-b51f-4c3e-89a8-74d8af9fa350/pictures/d3c3f84e-9f14-4c92-8abb-682e04549cfa_1024x750.jpg","alt":{},"legend":{},"excluded":false},{"url":"https://firebasestorage.googleapis.com/v0/b/approof-references-beta.appspot.com/o/v5%2Freferences%2F2603b4de-b51f-4c3e-89a8-74d8af9fa350%2Fpictures%2F31b81509-5e85-4f58-b91b-907d92ab1217.jpg?alt=media&token=7150b614-4477-4370-a5b2-a64f847ca52d","storagePath":"v5/references/2603b4de-b51f-4c3e-89a8-74d8af9fa350/pictures/31b81509-5e85-4f58-b91b-907d92ab1217.jpg","webUrl":"https://storage.googleapis.com/approof-references-beta.appspot.com/v5/references/2603b4de-b51f-4c3e-89a8-74d8af9fa350/pictures/31b81509-5e85-4f58-b91b-907d92ab1217_1024x750.jpg?GoogleAccessId=firebase-adminsdk-8gpu7%40approof-references-beta.iam.gserviceaccount.com&Expires=16756675200&Signature=d5I79%2FoShPU1cDde9%2BQjUF8GuDR6PKv8MF%2BAQOWm6JOIJt0WzAW2GOccDcndRLJ91JhQvATAQtt7SdUSJGMfc2bvS%2B%2FkCUXDSZA5e4svbipoNMZZhs7LrW1Cbdje8N9SkpN%2Fs4Pie21Vjy8K9URhOgXlZKRCSmR2B2Cv%2FI4CFoIrdDiD960w3oMQMY1w48aPtPj1ILMn0wWj67I3gL4wM2h7jpBNYsZ9DR9FY3mh%2F72m4yWTTMy4E51Wwv2n9Sb9mYWOGx%2F2oXWLLkoyvORBl0rHZ5Pv21Yb%2F9Mb%2BhdiAZr63f1xj82Q9HTKfvpfHjvcq50cKhrjWuy5scMVRtU9Vg%3D%3D","webStoragePath":"v5/references/2603b4de-b51f-4c3e-89a8-74d8af9fa350/pictures/31b81509-5e85-4f58-b91b-907d92ab1217_1024x750.jpg","alt":{},"legend":{},"excluded":false},{"url":"https://firebasestorage.googleapis.com/v0/b/approof-references-beta.appspot.com/o/v5%2Freferences%2F2603b4de-b51f-4c3e-89a8-74d8af9fa350%2Fpictures%2F0fe89ed7-2e98-4899-b305-6afcb3cd5689.jpg?alt=media&token=bc0e7378-5ccc-41bf-b2c9-e54402bf03c3","storagePath":"v5/references/2603b4de-b51f-4c3e-89a8-74d8af9fa350/pictures/0fe89ed7-2e98-4899-b305-6afcb3cd5689.jpg","webUrl":"https://storage.googleapis.com/approof-references-beta.appspot.com/v5/references/2603b4de-b51f-4c3e-89a8-74d8af9fa350/pictures/0fe89ed7-2e98-4899-b305-6afcb3cd5689_1024x750.jpg?GoogleAccessId=firebase-adminsdk-8gpu7%40approof-references-beta.iam.gserviceaccount.com&Expires=16756675200&Signature=NHW09Ud%2Bq%2Fq5t%2FTCUMWuLON3H%2BO2l1M4PiLmDQZhB6N5Z7kfse1y0Jh6RDRRSpxt%2B3onOAjPk3lXfEHFeWgadDX9gqA%2FCGH8ZumTx2reGvXAzoFAbB5A%2FlJW3xKd5FZOwGrzjNdItOSx7u3i89MXjSnjIUjvlWiS0D5hoszJjGTzkaFIl8%2BSBHLMol4YNDqqTQhGWlVmojnhOWrI3hJRl8XWy%2FRi9%2FoykK%2BtC5i6z2ZVC0f0wTGCyPI5xmgC5paA9ZkaXng8B0O0Su5BP%2FRRuToE6%2FR2gMTqmkMcqCupp72k55plu3IapahAbcQVrqeKfUaB1S0KM5pDu5TWQdUzZg%3D%3D","webStoragePath":"v5/references/2603b4de-b51f-4c3e-89a8-74d8af9fa350/pictures/0fe89ed7-2e98-4899-b305-6afcb3cd5689_1024x750.jpg","alt":{},"legend":{},"excluded":false},{"url":"https://firebasestorage.googleapis.com/v0/b/approof-references-beta.appspot.com/o/v5%2Freferences%2F2603b4de-b51f-4c3e-89a8-74d8af9fa350%2Fpictures%2Fb3eb5c89-c210-4eac-9a12-29e5edc4d9f7.jpg?alt=media&token=5dceca15-dec8-4170-98a7-293c68eb4371","storagePath":"v5/references/2603b4de-b51f-4c3e-89a8-74d8af9fa350/pictures/b3eb5c89-c210-4eac-9a12-29e5edc4d9f7.jpg","webUrl":"https://storage.googleapis.com/approof-references-beta.appspot.com/v5/references/2603b4de-b51f-4c3e-89a8-74d8af9fa350/pictures/b3eb5c89-c210-4eac-9a12-29e5edc4d9f7_1024x750.jpg?GoogleAccessId=firebase-adminsdk-8gpu7%40approof-references-beta.iam.gserviceaccount.com&Expires=16756675200&Signature=JUfzde9%2BD%2F0xlARyicHi1oRlxwzFFCOQKhkjolxa7%2BTvpabWrOWncnuzGNoVka24MD2xnLutJE07zLQD1Bkw%2FaDwi%2Fx3oPChtEOSZ%2BzCzQ%2FtxBJ%2F7B2g3kT2tMz7nLOxMXUmsn%2Fngkr0D9wydbe%2F%2B9H35YDNvh25sx1M45awBvHocO0O4NYr8bKssOMkGe3on9bWCk3tgMgXXti20cJbnJU3V%2Fgu8%2Bi6gBHtFO0t%2Bte%2BPvX7UC%2FqqSd40JRgBmxb4G%2Fo%2BFTH9eZDWUTLL6kTIOnhgJO3ufWEh2ch2QJbvB8HyUUQX6g5sVRM5K0Ef%2F257KyA7R2lDJgi9%2BOsbRg%2BcQ%3D%3D","webStoragePath":"v5/references/2603b4de-b51f-4c3e-89a8-74d8af9fa350/pictures/b3eb5c89-c210-4eac-9a12-29e5edc4d9f7_1024x750.jpg","alt":{},"legend":{},"excluded":false},{"url":"https://firebasestorage.googleapis.com/v0/b/approof-references-beta.appspot.com/o/v5%2Freferences%2F2603b4de-b51f-4c3e-89a8-74d8af9fa350%2Fpictures%2F4608f625-e7cd-42b6-b1d9-72c0b3b71088.jpg?alt=media&token=eeb0bfe7-ea7c-4ac8-a643-efd6522e2f9d","storagePath":"v5/references/2603b4de-b51f-4c3e-89a8-74d8af9fa350/pictures/4608f625-e7cd-42b6-b1d9-72c0b3b71088.jpg","webUrl":"https://storage.googleapis.com/approof-references-beta.appspot.com/v5/references/2603b4de-b51f-4c3e-89a8-74d8af9fa350/pictures/4608f625-e7cd-42b6-b1d9-72c0b3b71088_1024x750.jpg?GoogleAccessId=firebase-adminsdk-8gpu7%40approof-references-beta.iam.gserviceaccount.com&Expires=16756675200&Signature=VJXtmeGG8UX8gRR4rsYswuUr3adpkkAb8ImYF0%2FfEGBgrz3ZdxOGe%2Buu6v8LFCIDUaOSUhrj0mUE%2Bs3V21zMFyVe7ahz4b8zgn9OVw2YAHKMrOcw7XJG5J9KBhNUhZ2pyl%2BGIS6Hdc5vYcs4Ct02z9296jXLd4En9rjTQLb9tfiFlKNeiYUJn4mpvK7U5MBHYrK%2FtwfDmSHDmhEU4Ux3LLXhriD4btSK7qhIfqQ0kQQWt7LeAUacjoXLmGETl1T3nI3jLAxPL7Tcqv5tfi%2B9HKYo1xhiBN4Np6Q6fbYhw3GBhgAnJr0j5eRpEosC93Y9%2F3Eri1HvOFxQ%2FX0jAHPpNA%3D%3D","webStoragePath":"v5/references/2603b4de-b51f-4c3e-89a8-74d8af9fa350/pictures/4608f625-e7cd-42b6-b1d9-72c0b3b71088_1024x750.jpg","alt":{},"legend":{},"excluded":false}],"locale":"fr_FR","tags":{"013_etancheite":[],"002_element_porteur":[],"015_protection":[]},"owner":{"id":"5d569426-c790-4bce-adfe-edee115d5a07","firstName":"Jack","lastName":"Sparrow","derbigum":true},"description":{},"prescriber":null,"authorization":{"url":null,"filename":null,"storagePath":null},"share":null,"solutionTypes":["Co2AbsorbantRoofs"],"shareGroups":{},"channels":[],"products":[]}';
+const crashingReferenceJson =
     '{"id":"a9c00c59-c607-476d-ba7f-0420250f8860","projectName":{"fr":"test PDF"},"customerName":"PDF","companyName":"Imperbel","surface":500,"buildingType":"Medical","newBuilding":false,"year":2022,"month":4,"address":"La Rochelle, France","countryCode":"FR","city":"La Rochelle","country":"France","projectDate":"2022-04","satellite":{"url":"https://storage.googleapis.com/approof-references-beta.appspot.com/v5/references/a9c00c59-c607-476d-ba7f-0420250f8860/satellite/4222e9ec-8a54-4c26-a2d0-32dec73d3c9e.jpg?GoogleAccessId=firebase-adminsdk-8gpu7%40approof-references-beta.iam.gserviceaccount.com&Expires=16756675200&Signature=h3P8X%2BXZbcKOyDKpUpJyB3Wo2wNX3DgkehmfNMq501AFBwekhMCE1%2FCTh0zHNTupEqzFw%2FdOLmMXTEJ%2FrOtHozF%2BYHqyqXVJlnopmysAsgTjc26DZPHakEzNwuma7IglAkU3nWRxIHJMmKP40I%2BaPKL7EX4sPIhmxHomRJMmq3a8oTZk0rkZLRSXwwr3D6p1XNnpQcAF5qe8tMqTHdqIHBFoljcor2Fhs946jOKwi0VHlhF5c8rSdW8P6vPLpGSpGepi5Qwrtk5v0jVj4ZO5cYiI1w4S3cTKS9cD4jx7ZVFVvCGcnB%2BWvvz5rWtmZagylZQoIbEc3W8ujEnKY%2Bc%2FRg%3D%3D","storagePath":"v5/references/a9c00c59-c607-476d-ba7f-0420250f8860/satellite/4222e9ec-8a54-4c26-a2d0-32dec73d3c9e.jpg"},"pictures":[{"url":"https://firebasestorage.googleapis.com/v0/b/approof-references-beta.appspot.com/o/v5%2Freferences%2Fa9c00c59-c607-476d-ba7f-0420250f8860%2Fpictures%2Ff65f6b42-0043-497e-9c61-1349df8e2836.jpg?alt=media&token=40388abd-8aa6-4b72-8742-fcedc848271d","storagePath":"v5/references/a9c00c59-c607-476d-ba7f-0420250f8860/pictures/f65f6b42-0043-497e-9c61-1349df8e2836.jpg","webUrl":"https://storage.googleapis.com/approof-references-beta.appspot.com/v5/references/a9c00c59-c607-476d-ba7f-0420250f8860/pictures/f65f6b42-0043-497e-9c61-1349df8e2836_1024x750.jpg?GoogleAccessId=firebase-adminsdk-8gpu7%40approof-references-beta.iam.gserviceaccount.com&Expires=16756675200&Signature=L%2BeoCXa2Wq90vVHNGM8FZLfOIwhrQhfrBg7yBrKaloIM0I8MFIkRufyJaAyKVTcvg65nXM%2F6VfcBDM7arKVotki4ki7AD3o3wDY%2BCNI0vfWC82Gj8ATLAARbWja6bBG4el2O2NtMUXoRwUFswrSCC2b10MWhxxIZJJEDdqLdlZ4rzlTX9322YyvLFmyZJKT15PElgLSV8fULTladq3GtXKrVqH61b9OGGnMmEiSj7b4HuQXCNx5f4gdecX4CE9n%2FIGmmyeXYjXU%2F0c2er6sbCZNZy7Zrg3domej%2Ftz5rScE7qibFlUYmhhKXqQOEPpGx2mw1GvenF4RCiIcJIAaiMw%3D%3D","webStoragePath":"v5/references/a9c00c59-c607-476d-ba7f-0420250f8860/pictures/f65f6b42-0043-497e-9c61-1349df8e2836_1024x750.jpg","alt":{},"legend":{},"excluded":false},{"url":"https://firebasestorage.googleapis.com/v0/b/approof-references-beta.appspot.com/o/v5%2Freferences%2Fa9c00c59-c607-476d-ba7f-0420250f8860%2Fpictures%2F39e9c613-026f-4622-bb98-aaba32bf47f0.jpg?alt=media&token=0e1f076a-b7e1-4e76-a10b-7d67e43878e5","storagePath":"v5/references/a9c00c59-c607-476d-ba7f-0420250f8860/pictures/39e9c613-026f-4622-bb98-aaba32bf47f0.jpg","webUrl":"https://storage.googleapis.com/approof-references-beta.appspot.com/v5/references/a9c00c59-c607-476d-ba7f-0420250f8860/pictures/39e9c613-026f-4622-bb98-aaba32bf47f0_1024x750.jpg?GoogleAccessId=firebase-adminsdk-8gpu7%40approof-references-beta.iam.gserviceaccount.com&Expires=16756675200&Signature=RM1wIchGU6pP1Pv%2FVzuLbegDJ1n%2FgNmWGfubkcIA0Rkh%2B%2Fw5GzhFthqsZEYVj1rl9lC%2FPt809oQ9cT5YYqdBSqxC2dqhGl1aFDW5%2FPlZESVM0XkyLz97u2M%2FljhBgb7ywPbO8jhpSK3t3WJn1ER00Hg7ZkpQZp4Y49iXSB%2BW0k4TiAEANtdSqPNvle34bjzJbXTm%2FUrlKPRG31eruPNaqfpzi6ReUtaJLqWnASLWsNyjHFRxozesWLzca7dmQ45QSlP%2BaofM6NQ5LOmFX%2FDjjyDAw2fCBHq22Gs5mE5Wb%2FugHsQMqhTt1vS79CmKIATGcVjPfECVRbPzLNaNEPCAmg%3D%3D","webStoragePath":"v5/references/a9c00c59-c607-476d-ba7f-0420250f8860/pictures/39e9c613-026f-4622-bb98-aaba32bf47f0_1024x750.jpg","alt":{},"legend":{},"excluded":false}],"locale":"fr_FR","tags":{"013_etancheite":[],"002_element_porteur":[],"015_protection":[]},"owner":{"id":"5d569426-c790-4bce-adfe-edee115d5a07","firstName":"Jack","lastName":"Sparrow","derbigum":true},"description":{},"prescriber":null,"authorization":{"url":null,"filename":null,"storagePath":null},"share":null,"solutionTypes":[],"shareGroups":{},"channels":[],"products":["derbigumAquatop"]}';
 
 class HomePage extends StatefulWidget {
@@ -19,6 +21,35 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   bool _generatingPdf = false;
 
+  Future<void> _generatePdf(String referenceJson) async {
+    setState(() {
+      _generatingPdf = true;
+    });
+    final referenceMap = json.decode(referenceJson);
+    referenceMap['dateCreated'] = Timestamp.now();
+    referenceMap['location'] =
+        const GeoPoint(5.950563611517859, 80.54213802428963);
+    final reference = Reference.fromJson(referenceMap);
+    final referencePdfGenerator = ReferencePdfGenerator();
+    final pdfBytes = await referencePdfGenerator.generatePdf(
+      context: context,
+      format: PdfPageFormat.a4.copyWith(
+        marginTop: 1 * PdfPageFormat.cm,
+        marginBottom: 0.7 * PdfPageFormat.cm,
+        marginLeft: 1 * PdfPageFormat.cm,
+        marginRight: 1 * PdfPageFormat.cm,
+      ),
+      reference: reference,
+    );
+    await Printing.sharePdf(
+      bytes: pdfBytes,
+      filename: '${reference.id}.pdf',
+    );
+    setState(() {
+      _generatingPdf = false;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,44 +57,37 @@ class _HomePageState extends State<HomePage> {
         title: const Text('PDF Crasher'),
       ),
       body: Center(
-        child: ElevatedButton(
-          child: _generatingPdf
-              ? const SizedBox(
-                  width: 30,
-                  height: 30,
-                  child: CircularProgressIndicator(),
-                )
-              : const Text('Generate PDF'),
-          onPressed: _generatingPdf
-              ? null
-              : () async {
-                  setState(() {
-                    _generatingPdf = true;
-                  });
-                  final referenceMap = json.decode(referenceJson);
-                  referenceMap['dateCreated'] = Timestamp.now();
-                  referenceMap['location'] =
-                      const GeoPoint(5.950563611517859, 80.54213802428963);
-                  final reference = Reference.fromJson(referenceMap);
-                  final referencePdfGenerator = ReferencePdfGenerator();
-                  final pdfBytes = await referencePdfGenerator.generatePdf(
-                    context: context,
-                    format: PdfPageFormat.a4.copyWith(
-                      marginTop: 1 * PdfPageFormat.cm,
-                      marginBottom: 0.7 * PdfPageFormat.cm,
-                      marginLeft: 1 * PdfPageFormat.cm,
-                      marginRight: 1 * PdfPageFormat.cm,
-                    ),
-                    reference: reference,
-                  );
-                  await Printing.sharePdf(
-                    bytes: pdfBytes,
-                    filename: '${reference.id}.pdf',
-                  );
-                  setState(() {
-                    _generatingPdf = false;
-                  });
-                },
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            ElevatedButton(
+              child: _generatingPdf
+                  ? const SizedBox(
+                      width: 30,
+                      height: 30,
+                      child: CircularProgressIndicator(),
+                    )
+                  : const Text('Generate PDF'),
+              onPressed: _generatingPdf
+                  ? null
+                  : () => _generatePdf(normalReferenceJson),
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            ElevatedButton(
+              child: _generatingPdf
+                  ? const SizedBox(
+                      width: 30,
+                      height: 30,
+                      child: CircularProgressIndicator(),
+                    )
+                  : const Text('Crash PDF'),
+              onPressed: _generatingPdf
+                  ? null
+                  : () => _generatePdf(crashingReferenceJson),
+            ),
+          ],
         ),
       ),
     );
